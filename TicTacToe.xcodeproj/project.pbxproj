@@ -16,8 +16,12 @@
 		DF2845881774136600D54678 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DF2845871774136600D54678 /* Default.png */; };
 		DF28458A1774136600D54678 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF2845891774136600D54678 /* Default@2x.png */; };
 		DF28458C1774136600D54678 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF28458B1774136600D54678 /* Default-568h@2x.png */; };
-		DF28458F1774136700D54678 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF28458D1774136700D54678 /* MainStoryboard.storyboard */; };
 		DF2845921774136700D54678 /* TDTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2845911774136700D54678 /* TDTViewController.m */; };
+		DF2845A217741E7C00D54678 /* TDTCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2845A117741E7C00D54678 /* TDTCellButton.m */; };
+		DF2845A817741F4900D54678 /* TDTCellID.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2845A717741F4900D54678 /* TDTCellID.m */; };
+		DF2845A917742B5E00D54678 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF28458D1774136700D54678 /* MainStoryboard.storyboard */; };
+		DF2845AE177434C000D54678 /* TDTTicTacToeGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2845AD177434BF00D54678 /* TDTTicTacToeGameObject.m */; };
+		DF2845B2177438A000D54678 /* TDTCellObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2845B11774389F00D54678 /* TDTCellObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,16 @@
 		DF28458E1774136700D54678 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		DF2845901774136700D54678 /* TDTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDTViewController.h; sourceTree = "<group>"; };
 		DF2845911774136700D54678 /* TDTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDTViewController.m; sourceTree = "<group>"; };
+		DF284598177413AF00D54678 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		DF2845A017741E7B00D54678 /* TDTCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTCellButton.h; sourceTree = "<group>"; };
+		DF2845A117741E7C00D54678 /* TDTCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTCellButton.m; sourceTree = "<group>"; };
+		DF2845A617741F4800D54678 /* TDTCellID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTCellID.h; sourceTree = "<group>"; };
+		DF2845A717741F4900D54678 /* TDTCellID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTCellID.m; sourceTree = "<group>"; };
+		DF2845AC177434BF00D54678 /* TDTTicTacToeGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTTicTacToeGameObject.h; sourceTree = "<group>"; };
+		DF2845AD177434BF00D54678 /* TDTTicTacToeGameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTTicTacToeGameObject.m; sourceTree = "<group>"; };
+		DF2845AF1774377D00D54678 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		DF2845B01774389F00D54678 /* TDTCellObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTCellObject.h; sourceTree = "<group>"; };
+		DF2845B11774389F00D54678 /* TDTCellObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTCellObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,16 @@
 				DF28458D1774136700D54678 /* MainStoryboard.storyboard */,
 				DF2845901774136700D54678 /* TDTViewController.h */,
 				DF2845911774136700D54678 /* TDTViewController.m */,
+				DF284598177413AF00D54678 /* View.xib */,
+				DF2845A017741E7B00D54678 /* TDTCellButton.h */,
+				DF2845A117741E7C00D54678 /* TDTCellButton.m */,
+				DF2845A617741F4800D54678 /* TDTCellID.h */,
+				DF2845A717741F4900D54678 /* TDTCellID.m */,
+				DF2845AF1774377D00D54678 /* constants.h */,
+				DF2845B01774389F00D54678 /* TDTCellObject.h */,
+				DF2845B11774389F00D54678 /* TDTCellObject.m */,
+				DF2845AC177434BF00D54678 /* TDTTicTacToeGameObject.h */,
+				DF2845AD177434BF00D54678 /* TDTTicTacToeGameObject.m */,
 				DF28457C1774136600D54678 /* Supporting Files */,
 			);
 			path = TicTacToe;
@@ -163,7 +187,7 @@
 				DF2845881774136600D54678 /* Default.png in Resources */,
 				DF28458A1774136600D54678 /* Default@2x.png in Resources */,
 				DF28458C1774136600D54678 /* Default-568h@2x.png in Resources */,
-				DF28458F1774136700D54678 /* MainStoryboard.storyboard in Resources */,
+				DF2845A917742B5E00D54678 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +201,10 @@
 				DF2845821774136600D54678 /* main.m in Sources */,
 				DF2845861774136600D54678 /* TDTAppDelegate.m in Sources */,
 				DF2845921774136700D54678 /* TDTViewController.m in Sources */,
+				DF2845A217741E7C00D54678 /* TDTCellButton.m in Sources */,
+				DF2845A817741F4900D54678 /* TDTCellID.m in Sources */,
+				DF2845AE177434C000D54678 /* TDTTicTacToeGameObject.m in Sources */,
+				DF2845B2177438A000D54678 /* TDTCellObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +292,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TicTacToe/TicTacToe-Prefix.pch";
 				INFOPLIST_FILE = "TicTacToe/TicTacToe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -275,6 +304,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TicTacToe/TicTacToe-Prefix.pch";
 				INFOPLIST_FILE = "TicTacToe/TicTacToe-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

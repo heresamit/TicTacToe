@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TDTCellButton.h"
+#import "TDTCellID.h"
+#import "constants.h"
+#import "TDTTicTacToeGameObject.h"
 
-@interface TDTViewController : UIViewController
 
+@interface TDTViewController : UIViewController <TicTacToeGameDisplayerProtocol>
+-(void) gameWasWonByUser:(UserType) winner;
 @end
