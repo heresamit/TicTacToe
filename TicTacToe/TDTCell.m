@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Amit Chowdhary. All rights reserved.
 //
 
-#import "TDTCellObject.h"
+#import "TDTCell.h"
 
 
-@implementation TDTCellObject
+@implementation TDTCell
 
 
 -(id) initWithStatus:(CellStatus) status withCellID:(TDTCellID *) cellID

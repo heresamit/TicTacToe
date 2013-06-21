@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TDTCellID.h"
 #import "constants.h"
-@interface TDTCellObject : NSObject
+@interface TDTCell : NSObject
 @property (nonatomic,strong) TDTCellID* cellID;
 @property (nonatomic) CellStatus status;
 

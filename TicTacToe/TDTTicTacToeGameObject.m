@@ -7,7 +7,7 @@
 //
 
 #import "TDTTicTacToeGameObject.h"
-#import "TDTCellObject.h"
+#import "TDTCell.h"
 
 @interface TDTTicTacToeGameObject ()
 @property (nonatomic,weak) id delegate;
@@ -32,7 +32,7 @@
     {
         NSMutableArray *rowArray = [[NSMutableArray alloc] init];
         for (NSInteger j=0; j<3; j++)
-            [rowArray addObject:[[TDTCellObject alloc]initWithStatus:unoccupied withCellID:[[TDTCellID alloc] initWithRow:i withColumn:j]]];
+            [rowArray addObject:[[TDTCell alloc]initWithStatus:unoccupied withCellID:[[TDTCellID alloc] initWithRow:i withColumn:j]]];
         [tempCellArray addObject:rowArray];
     }
     self.cellArray = [[NSArray alloc] initWithArray:tempCellArray];
@@ -66,7 +66,7 @@
 }
 -(void) cellTappedAtPosition:(TDTCellID *) position byPlayer:(UserType) player
 {
-    TDTCellObject *temp = self.cellArray[position.row][position.column];
+    TDTCell *temp = self.cellArray[position.row][position.column];
     temp.status = player;
     
     UserType winner = [self gameWasWonByUser];
