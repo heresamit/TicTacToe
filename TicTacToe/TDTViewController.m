@@ -144,6 +144,24 @@
     self.buttonArray = [[NSArray alloc] initWithArray:tempCellArray];
 }
 
+-(void) simulateOpponent
+{
+    TDTCellPosition *position;
+    NSMutableArray *freeCellArray = [[NSMutableArray alloc] init];
+    for(int i=0;i<3;i++)
+        for (int j=0;j<3;j++)
+            if ([self.gameObj.cellArray[i][j] status] == unoccupied)
+                [freeCellArray addObject:[self.gameObj.cellArray[i][j] cellID]];
+    
+    position = [freeCellArray objectAtIndex:(arc4random()%freeCellArray.count)];
+    [self.gameObj cellTappedAtPosition:position byPlayer:belongsToOpponent];
+}
+
+-(void) notifyOpponentOfTapAtPosition: (TDTCellPosition *) position
+{
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(simulateOpponent) userInfo:nil repeats:NO];
+}
+
 -(void) buttonPressed:(TDTCellButton *) sender
 {
     NSLog(@"%@",sender);
@@ -170,7 +188,7 @@
 //****************************************************************************************************
 
 -(void) gameWasWonByUser:(UserType)winner
-{
+{  
     NSString *victoryText = (winner == belongsToUser? @"Congrats You Won!" : @"You Lost!!");
     self.infoLabel.text = victoryText;
     [self.spinner stopAnimating];

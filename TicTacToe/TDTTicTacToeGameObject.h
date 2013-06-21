@@ -16,6 +16,7 @@
 -(void) opponentTappedCellAtPosition:(TDTCellPosition *) position;
 -(void) gameWasDrawn;
 -(void) gameStartedWithStatus:(GameStatus) status;
+-(void) notifyOpponentOfTapAtPosition: (TDTCellPosition *) position;
 
 @end
 

@@ -38,23 +38,7 @@
     self.cellArray = [[NSArray alloc] initWithArray:tempCellArray];
 }
 
--(void) simulateOpponent
-{
-    TDTCellPosition *position;
-    NSMutableArray *freeCellArray = [[NSMutableArray alloc] init];
-    for(int i=0;i<3;i++)
-        for (int j=0;j<3;j++)
-            if ([self.cellArray[i][j] status] == unoccupied)
-                [freeCellArray addObject:[self.cellArray[i][j] cellID]];
-    
-    position = [freeCellArray objectAtIndex:(arc4random()%freeCellArray.count)];
-    [self cellTappedAtPosition:position byPlayer:belongsToOpponent];
-}
 
--(void) notifyOpponentOfTapAtPosition: (TDTCellPosition *) position
-{
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(simulateOpponent) userInfo:nil repeats:NO];
-}
 -(BOOL) gameIsDrawn
 {
     for(int i=0;i<3;i++)
@@ -68,26 +52,25 @@
 {
     TDTCell *temp = self.cellArray[position.row][position.column];
     temp.status = player;
-    
     UserType winner = [self gameWasWonByUser];
-    if([self gameIsDrawn])
-    {
-        self.status = finished;
-        [self.delegate gameWasDrawn];
-    }
-    else if(winner!=unoccupied)
+    if(winner!=unoccupied)
     {
         self.status = finished;
         if(winner == belongsToOpponent)
             [self.delegate opponentTappedCellAtPosition:position];
         [self.delegate gameWasWonByUser:winner];
     }
-    
     else
     {
+        if([self gameIsDrawn])
+        {
+            self.status = finished;
+            [self.delegate gameWasDrawn];
+            return;
+        }
         if(player == belongsToUser)
         {
-            [self notifyOpponentOfTapAtPosition:position];
+            [self.delegate notifyOpponentOfTapAtPosition:position];
             self.status = opponentsTurn;
         }
         else if(player == belongsToOpponent)
@@ -106,11 +89,9 @@
         return [self.cellArray[1][1] status];
     
     for(int i=0;i<3;i++)
-        if([self.cellArray[i][0] status] == unoccupied)
-            continue;
-        else if((([self.cellArray[i][0] status] == [self.cellArray[i][1] status]) ? ([self.cellArray[i][1] status] == [self.cellArray[i][2] status]) : NO))
+        if(([self.cellArray[i][0] status] != unoccupied) && (([self.cellArray[i][0] status] == [self.cellArray[i][1] status]) ? ([self.cellArray[i][1] status] == [self.cellArray[i][2] status]) : NO))
            return [self.cellArray[i][0] status];
-        else if((([self.cellArray[0][i] status] == [self.cellArray[1][i] status]) ? ([self.cellArray[1][i] status] == [self.cellArray[2][i] status]) : NO))
+        else if(([self.cellArray[0][i] status] != unoccupied) &&(([self.cellArray[0][i] status] == [self.cellArray[1][i] status]) ? ([self.cellArray[1][i] status] == [self.cellArray[2][i] status]) : NO))
            return [self.cellArray[0][i] status];
 
     return unoccupied;
