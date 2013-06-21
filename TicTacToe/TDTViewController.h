@@ -14,5 +14,4 @@
 
 
 @interface TDTViewController : UIViewController <TicTacToeGameDisplayerProtocol>
--(void) gameWasWonByUser:(UserType) winner;
 @end

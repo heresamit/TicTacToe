@@ -10,19 +10,17 @@
 
 @implementation TDTCellButton
 
-- (id)initWithFrame:(CGRect)frame
-{
+-(id) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
     }
     return self;
 }
-- (id)initWithFrame:(CGRect)frame withColor:(UIColor *)color withID:(TDTCellPosition *)cellID
-{
+-(id) initWithFrame:(CGRect)frame withColor:(UIColor *)color withPosition:(TDTCellPosition *)cellID {
     self = [super initWithFrame:frame];
     if (self) {
-        self.cellID = cellID;
+        self.cellPosition = cellID;
         self.backgroundColor = color;
         self.userInteractionEnabled = NO;
     }

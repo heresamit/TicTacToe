@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface TDTCellPosition : NSObject
+
 @property (nonatomic) NSInteger row;
 @property (nonatomic) NSInteger column;
 
--(id) initWithRow:(NSInteger) row withColumn:(NSInteger) column;
+- (id)initWithRow:(NSInteger)row withColumn:(NSInteger)column;
+
 @end

@@ -11,14 +11,11 @@
 
 @implementation TDTCell
 
-
--(id) initWithStatus:(CellStatus) status withCellID:(TDTCellPosition *) cellID
-{
+- (id)initWithStatus:(CellStatus)belongsTo withCellPosition:(TDTCellPosition *)cellID {
     self = [super init];
-    if(self)
-    {
+    if (self) {
         self.cellID = cellID;
-        self.status = status;
+        self.belongsTo = belongsTo;
     }
     return self;
 }

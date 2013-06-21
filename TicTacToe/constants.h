@@ -13,9 +13,9 @@
 #define SPINNER_SIDE 20.0f
 
 typedef enum{
-    unoccupied = 0,
-    belongsToUser = 1,
-    belongsToOpponent = 2
+    none = 0,
+    user = 1,
+    opponent = 2
 }CellStatus;
 
 typedef enum{

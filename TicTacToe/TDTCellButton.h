@@ -10,7 +10,9 @@
 #import "TDTCellPosition.h"
 
 @interface TDTCellButton : UIButton
-@property (nonatomic,strong) TDTCellPosition* cellID;
 
-- (id)initWithFrame:(CGRect)frame withColor:(UIColor *)color withID:(TDTCellPosition *)cellID;
+@property (nonatomic, strong) TDTCellPosition* cellPosition;
+
+- (id)initWithFrame:(CGRect)frame withColor:(UIColor *)color withPosition:(TDTCellPosition *)cellID;
+
 @end

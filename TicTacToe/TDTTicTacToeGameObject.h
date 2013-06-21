@@ -12,19 +12,20 @@
 
 @protocol TicTacToeGameDisplayerProtocol
 
--(void) gameWasWonByUser:(UserType) winner;
--(void) opponentTappedCellAtPosition:(TDTCellPosition *) position;
+-(void) gameWasWonByUser:(UserType)winner;
+-(void) opponentTappedCellAtPosition:(TDTCellPosition *)position;
 -(void) gameWasDrawn;
--(void) gameStartedWithStatus:(GameStatus) status;
--(void) notifyOpponentOfTapAtPosition: (TDTCellPosition *) position;
+-(void) gameStartedWithStatus:(GameStatus)status;
+-(void) notifyOpponentOfTapAtPosition: (TDTCellPosition *)position;
 
 @end
 
 @interface TDTTicTacToeGameObject : NSObject
-@property (nonatomic,strong) NSArray* cellArray;
-@property (nonatomic) GameStatus status;
 
--(id) initWithStatus:(GameStatus) status withDelegate:(id) delegate;
--(void) cellTappedAtPosition:(TDTCellPosition *) position byPlayer:(UserType) player;
+@property (nonatomic, strong) NSArray*   cellArray;
+@property (nonatomic)         GameStatus status;
+
+- (id)initWithStatus:(GameStatus)status withDelegate:(id)delegate;
+- (void)cellTappedAtPosition:(TDTCellPosition *)position byPlayer:(UserType)player;
 
 @end

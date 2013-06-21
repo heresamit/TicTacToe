@@ -9,11 +9,9 @@
 #import "TDTCellPosition.h"
 
 @implementation TDTCellPosition
--(id) initWithRow:(NSInteger) row withColumn:(NSInteger) column
-{
+- (id)initWithRow:(NSInteger)row withColumn:(NSInteger)column {
     self = [super init];
-    if(self)
-    {
+    if (self) {
         self.row = row;
         self.column = column;
     }
