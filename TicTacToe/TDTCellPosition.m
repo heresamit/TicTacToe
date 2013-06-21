@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Amit Chowdhary. All rights reserved.
 //
 
-#import "TDTCellID.h"
+#import "TDTCellPosition.h"
 
-@implementation TDTCellID
+@implementation TDTCellPosition
 -(id) initWithRow:(NSInteger) row withColumn:(NSInteger) column
 {
     self = [super init];

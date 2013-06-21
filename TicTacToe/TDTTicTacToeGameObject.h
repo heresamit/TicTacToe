@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TDTCellID.h"
+#import "TDTCellPosition.h"
 #import "constants.h"
 
 @protocol TicTacToeGameDisplayerProtocol
 
 -(void) gameWasWonByUser:(UserType) winner;
--(void) opponentTappedCellAtPosition:(TDTCellID *) position;
+-(void) opponentTappedCellAtPosition:(TDTCellPosition *) position;
 -(void) gameWasDrawn;
 -(void) gameStartedWithStatus:(GameStatus) status;
 
@@ -24,6 +24,6 @@
 @property (nonatomic) GameStatus status;
 
 -(id) initWithStatus:(GameStatus) status withDelegate:(id) delegate;
--(void) cellTappedAtPosition:(TDTCellID *) position byPlayer:(UserType) player;
+-(void) cellTappedAtPosition:(TDTCellPosition *) position byPlayer:(UserType) player;
 
 @end

@@ -177,7 +177,7 @@
     [self wrapUpGame];
 }
 
--(void) opponentTappedCellAtPosition:(TDTCellID *)position
+-(void) opponentTappedCellAtPosition:(TDTCellPosition *)position
 {
     [self.buttonArray[position.row][position.column] setBackgroundColor:self.opponentColor];
     self.containerView.userInteractionEnabled = YES;

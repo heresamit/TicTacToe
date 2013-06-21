@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TDTCellButton.h"
-#import "TDTCellID.h"
+#import "TDTCellPosition.h"
 #import "constants.h"
 #import "TDTTicTacToeGameObject.h"
 

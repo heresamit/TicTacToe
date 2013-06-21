@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TDTCellID : NSObject
+@interface TDTCellPosition : NSObject
 @property (nonatomic) NSInteger row;
 @property (nonatomic) NSInteger column;
 

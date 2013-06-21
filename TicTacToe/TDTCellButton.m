@@ -18,7 +18,7 @@
     }
     return self;
 }
-- (id)initWithFrame:(CGRect)frame withColor:(UIColor *)color withID:(TDTCellID *)cellID
+- (id)initWithFrame:(CGRect)frame withColor:(UIColor *)color withID:(TDTCellPosition *)cellID
 {
     self = [super initWithFrame:frame];
     if (self) {

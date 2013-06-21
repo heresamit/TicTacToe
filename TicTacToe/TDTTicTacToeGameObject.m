@@ -32,7 +32,7 @@
     {
         NSMutableArray *rowArray = [[NSMutableArray alloc] init];
         for (NSInteger j=0; j<3; j++)
-            [rowArray addObject:[[TDTCell alloc]initWithStatus:unoccupied withCellID:[[TDTCellID alloc] initWithRow:i withColumn:j]]];
+            [rowArray addObject:[[TDTCell alloc]initWithStatus:unoccupied withCellID:[[TDTCellPosition alloc] initWithRow:i withColumn:j]]];
         [tempCellArray addObject:rowArray];
     }
     self.cellArray = [[NSArray alloc] initWithArray:tempCellArray];
@@ -40,7 +40,7 @@
 
 -(void) simulateOpponent
 {
-    TDTCellID *position;
+    TDTCellPosition *position;
     NSMutableArray *freeCellArray = [[NSMutableArray alloc] init];
     for(int i=0;i<3;i++)
         for (int j=0;j<3;j++)
@@ -51,7 +51,7 @@
     [self cellTappedAtPosition:position byPlayer:belongsToOpponent];
 }
 
--(void) notifyOpponentOfTapAtPosition: (TDTCellID *) position
+-(void) notifyOpponentOfTapAtPosition: (TDTCellPosition *) position
 {
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(simulateOpponent) userInfo:nil repeats:NO];
 }
@@ -64,7 +64,7 @@
     
     return YES;
 }
--(void) cellTappedAtPosition:(TDTCellID *) position byPlayer:(UserType) player
+-(void) cellTappedAtPosition:(TDTCellPosition *) position byPlayer:(UserType) player
 {
     TDTCell *temp = self.cellArray[position.row][position.column];
     temp.status = player;

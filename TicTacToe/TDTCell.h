@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TDTCellID.h"
+#import "TDTCellPosition.h"
 #import "constants.h"
 @interface TDTCell : NSObject
-@property (nonatomic,strong) TDTCellID* cellID;
+@property (nonatomic,strong) TDTCellPosition* cellID;
 @property (nonatomic) CellStatus status;
 
--(id) initWithStatus:(CellStatus) status withCellID:(TDTCellID *) cellID;
+-(id) initWithStatus:(CellStatus) status withCellID:(TDTCellPosition *) cellID;
 @end

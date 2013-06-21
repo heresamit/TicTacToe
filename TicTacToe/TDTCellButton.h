@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TDTCellID.h"
+#import "TDTCellPosition.h"
 
 @interface TDTCellButton : UIButton
-@property (nonatomic,strong) TDTCellID* cellID;
+@property (nonatomic,strong) TDTCellPosition* cellID;
 
-- (id)initWithFrame:(CGRect)frame withColor:(UIColor *)color withID:(TDTCellID *)cellID;
+- (id)initWithFrame:(CGRect)frame withColor:(UIColor *)color withID:(TDTCellPosition *)cellID;
 @end

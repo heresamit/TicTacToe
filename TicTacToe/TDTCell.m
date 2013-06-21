@@ -12,7 +12,7 @@
 @implementation TDTCell
 
 
--(id) initWithStatus:(CellStatus) status withCellID:(TDTCellID *) cellID
+-(id) initWithStatus:(CellStatus) status withCellID:(TDTCellPosition *) cellID
 {
     self = [super init];
     if(self)
