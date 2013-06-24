@@ -11,7 +11,8 @@
 
 @interface TDTTicTacToeGameObject ()
 
-@property (nonatomic,weak) id delegate;
+@property (nonatomic, weak) id        delegate;
+@property (nonatomic)       UserType  winnerOfGame;
 
 @end
 
@@ -45,7 +46,7 @@
 - (BOOL)gameIsDrawn {
     for (int i=0;i<3;i++) {
         for (int j=0;j<3;j++) {
-            if ([self.cellArray[i][j] status] == none) {
+            if ([self.cellArray[i][j] belongsTo] == none) {
                 return NO;
             }
         }
@@ -80,17 +81,48 @@
     }
 }
 
-- (UserType)gameWasWonByUser {
-    if (([self.cellArray[0][0] status] != none) && (([self.cellArray[0][0] status] == [self.cellArray[1][1] status]) ? ([self.cellArray[2][2] status] == [self.cellArray[1][1] status]) : NO))
-        return [self.cellArray[0][0] status];
-    if (([self.cellArray[0][2] status] != none) && (([self.cellArray[0][2] status] == [self.cellArray[1][1] status]) ? ([self.cellArray[2][0] status] == [self.cellArray[1][1] status]) : NO))
-        return [self.cellArray[1][1] status];
+- (UserType)whoOwnsLeftDiagonal {
+    for (int i=1; i<3; i++) {
+        if([self.cellArray[i][i] belongsTo] != [self.cellArray[i-1][i-1] belongsTo]) {
+            return none;
+        }
+    }
+    return [self.cellArray[0][0] belongsTo];
+}
 
+- (UserType)whoOwnsRightDiagonal {
+    int i,j;
+    for(i = 0,j = 2; i <= 1; i++,j--) {
+        if ([self.cellArray[i][j] belongsTo] != [self.cellArray[i+1][j-1] belongsTo]) {
+            return none;
+        }
+    }
+    return [self.cellArray[0][2] belongsTo];
+}
+
+- (UserType)whichPlayerWonByCompletingDiagonals {
+    if ([self whoOwnsLeftDiagonal] != none) {
+        return [self whoOwnsLeftDiagonal];
+    }
+    else if ([self whoOwnsRightDiagonal] != none) {
+        return [self whoOwnsRightDiagonal];
+    }
+    else {
+        return none;
+    }
+    
+}
+
+
+- (UserType)gameWasWonByUser {
+    if([self whichPlayerWonByCompletingDiagonals] != none)
+        return self.winnerOfGame;
+    
     for (int i=0;i<3;i++)
-        if (([self.cellArray[i][0] status] != none) && (([self.cellArray[i][0] status] == [self.cellArray[i][1] status]) ? ([self.cellArray[i][1] status] == [self.cellArray[i][2] status]) : NO))
-           return [self.cellArray[i][0] status];
-        else if (([self.cellArray[0][i] status] != none) &&(([self.cellArray[0][i] status] == [self.cellArray[1][i] status]) ? ([self.cellArray[1][i] status] == [self.cellArray[2][i] status]) : NO))
-           return [self.cellArray[0][i] status];
+        if (([self.cellArray[i][0]belongsTo] != none) && (([self.cellArray[i][0] belongsTo] == [self.cellArray[i][1] belongsTo]) ? ([self.cellArray[i][1] belongsTo] == [self.cellArray[i][2] belongsTo]) : NO))
+           return [self.cellArray[i][0] belongsTo];
+        else if (([self.cellArray[0][i] belongsTo] != none) &&(([self.cellArray[0][i] belongsTo] == [self.cellArray[1][i] belongsTo]) ? ([self.cellArray[1][i] belongsTo] == [self.cellArray[2][i] belongsTo]) : NO))
+           return [self.cellArray[0][i] belongsTo];
 
     return none;
 }
