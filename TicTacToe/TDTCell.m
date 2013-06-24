@@ -11,7 +11,7 @@
 
 @implementation TDTCell
 
-- (id)initWithStatus:(Player)player withCellPosition:(TDTCellPosition *)cellPosition {
+- (id)initWithPlayer:(Player)player withCellPosition:(TDTCellPosition *)cellPosition {
     self = [super init];
     if (self) {
         self.cellPosition = cellPosition;

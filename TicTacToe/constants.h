@@ -13,9 +13,9 @@
 #define SPINNER_SIDE 20.0f
 
 typedef enum{
-    TDTUserTypeNone = 0,
-    TDTUserTypeUser = 1,
-    TDTUserTypeOpponent = 2
+    TDTPlayerNone = 0,
+    TDTPlayerUser = 1,
+    TDTPlayerOpponent = 2
 }Player;
 
 typedef enum{

@@ -112,7 +112,7 @@
 {
     for(int i=0;i<3;i++) {
         for(int j=0;j<3;j++) {
-            if([self.gameObj.cellArray[i][j] player] == TDTUserTypeNone) {
+            if([self.gameObj.cellArray[i][j] player] == TDTPlayerNone) {
                 [self.buttonArray[i][j] setUserInteractionEnabled:enabled];
             }
         }
@@ -140,13 +140,13 @@
     NSMutableArray *freeCellArray = [[NSMutableArray alloc] init];
     for (int i=0;i<3;i++) {
         for (int j=0;j<3;j++) {
-            if ([self.gameObj.cellArray[i][j] player] == TDTUserTypeNone)
+            if ([self.gameObj.cellArray[i][j] player] == TDTPlayerNone)
                 [freeCellArray addObject:[self.gameObj.cellArray[i][j] cellPosition]];
         }
     }
     
     position = [freeCellArray objectAtIndex:(arc4random()%freeCellArray.count)];
-    [self.gameObj cellTappedAtPosition:position byPlayer:TDTUserTypeOpponent];
+    [self.gameObj cellTappedAtPosition:position byPlayer:TDTPlayerOpponent];
 }
 
 -(void) notifyOpponentOfTapAtPosition:(TDTCellPosition *)position {
@@ -159,7 +159,7 @@
     self.containerView.userInteractionEnabled = NO;
     self.infoLabel.text = @"Waiting for opponent";
     [self.spinner startAnimating];
-    [self.gameObj cellTappedAtPosition:sender.cellPosition byPlayer:TDTUserTypeUser];
+    [self.gameObj cellTappedAtPosition:sender.cellPosition byPlayer:TDTPlayerUser];
 }
 
 -(void) displayButtonArrayInContainerView:(UIView *)container {
@@ -177,7 +177,7 @@
 //****************************************************************************************************
 
 - (void)gameWasWonByUser:(Player)winner {  
-    NSString *victoryText = (winner == TDTUserTypeUser? @"Congrats You Won!" : @"You Lost!!");
+    NSString *victoryText = (winner == TDTPlayerUser? @"Congrats You Won!" : @"You Lost!!");
     self.infoLabel.text = victoryText;
     [self.spinner stopAnimating];
     [self wrapUpGame];

@@ -13,8 +13,8 @@
 @interface TDTCell : NSObject
 
 @property (nonatomic, strong) TDTCellPosition* cellPosition;
-@property (nonatomic)         Player         player;
+@property (nonatomic)         Player           player;
 
-- (id)initWithStatus:(Player)player withCellPosition:(TDTCellPosition *)cellID;
+- (id)initWithPlayer:(Player)player withCellPosition:(TDTCellPosition *)cellID;
 
 @end
