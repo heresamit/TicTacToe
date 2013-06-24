@@ -33,7 +33,7 @@
 
 - (void)initializator {
     
-    self.gameObj = [[TDTTicTacToeGameManager alloc] initWithStatus:gameStatusNotSet withDelegate:self];
+    self.gameObj = [[TDTTicTacToeGameManager alloc] initWithStatus:TDTGameStatusNotSet withDelegate:self];
     [self fillButtonArray];
     
     NSInteger containerSide = CONTAINER_SIDE;
@@ -92,18 +92,18 @@
 }
 
 - (void)gameStartedWithStatus:(GameStatus)status {
-    status = usersTurn;//REMOVE THIS LINE
-    if (status!=gameStatusNotSet) {
+    status = TDTGameStatusUsersTurn;//REMOVE THIS LINE
+    if (status!=TDTGameStatusNotSet) {
         self.gameObj.status = status;
-        if (status == usersTurn) {
+        if (status == TDTGameStatusUsersTurn) {
             self.infoLabel.text = @"Your Turn";
             [self setInteractionEnabledOrNotOnButtons:YES];
             [self.spinner stopAnimating];
-            self.gameObj.status = usersTurn;
+            self.gameObj.status = TDTGameStatusUsersTurn;
         }
         else {
             self.infoLabel.text = @"Waiting for opponent to start";
-            self.gameObj.status = opponentsTurn;
+            self.gameObj.status = TDTGameStatusOpponentsTurn;
         }
     }
 }

@@ -59,24 +59,24 @@
     cellAtTappedPosition.belongsTo = player;
     UserType winner = [self winnerType];
     if (winner!=TDTUserTypeNone) {
-        self.status = finished;
+        self.status = TDTGameStatusFinished;
         if (winner == TDTUserTypeOpponent)
             [self.delegate opponentTappedCellAtPosition:position];
         [self.delegate gameWasWonByUser:winner];
     }
     else {
         if ([self gameIsDrawn]) {
-            self.status = finished;
+            self.status = TDTGameStatusFinished;
             [self.delegate gameWasDrawn];
             return;
         }
         if (player == TDTUserTypeUser) {
             [self.delegate notifyOpponentOfTapAtPosition:position];
-            self.status = opponentsTurn;
+            self.status = TDTGameStatusOpponentsTurn;
         }
         else if (player == TDTUserTypeOpponent) {
             [self.delegate opponentTappedCellAtPosition:position];
-            self.status = usersTurn;
+            self.status = TDTGameStatusUsersTurn;
         }
     }
 }

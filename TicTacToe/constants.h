@@ -19,9 +19,9 @@ typedef enum{
 }UserType;
 
 typedef enum{
-    gameStatusNotSet = 0,
-    usersTurn = 1,
-    opponentsTurn = 2,
-    finished = 3
+    TDTGameStatusNotSet = 0,
+    TDTGameStatusUsersTurn = 1,
+    TDTGameStatusOpponentsTurn = 2,
+    TDTGameStatusFinished = 3
 }GameStatus;
 
