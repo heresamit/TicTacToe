@@ -11,6 +11,7 @@
 #import "TDTCellPosition.h"
 #import "constants.h"
 #import "TDTTicTacToeGameObject.h"
+#import "TDTCell.h"
 
 
 @interface TDTViewController : UIViewController <TicTacToeGameDisplayerProtocol>
