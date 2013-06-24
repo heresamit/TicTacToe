@@ -112,7 +112,7 @@
 {
     for(int i=0;i<3;i++) {
         for(int j=0;j<3;j++) {
-            if([self.gameObj.cellArray[i][j] belongsTo] == TDTUserTypeNone) {
+            if([self.gameObj.cellArray[i][j] player] == TDTUserTypeNone) {
                 [self.buttonArray[i][j] setUserInteractionEnabled:enabled];
             }
         }
@@ -140,7 +140,7 @@
     NSMutableArray *freeCellArray = [[NSMutableArray alloc] init];
     for (int i=0;i<3;i++) {
         for (int j=0;j<3;j++) {
-            if ([self.gameObj.cellArray[i][j] belongsTo] == TDTUserTypeNone)
+            if ([self.gameObj.cellArray[i][j] player] == TDTUserTypeNone)
                 [freeCellArray addObject:[self.gameObj.cellArray[i][j] cellPosition]];
         }
     }

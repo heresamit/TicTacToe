@@ -11,11 +11,11 @@
 
 @implementation TDTCell
 
-- (id)initWithStatus:(Player)belongsTo withCellPosition:(TDTCellPosition *)cellPosition {
+- (id)initWithStatus:(Player)player withCellPosition:(TDTCellPosition *)cellPosition {
     self = [super init];
     if (self) {
         self.cellPosition = cellPosition;
-        self.belongsTo = belongsTo;
+        self.player = player;
     }
     return self;
 }

@@ -46,7 +46,7 @@
 - (BOOL)gameIsDrawn {
     for (int i=0;i<3;i++) {
         for (int j=0;j<3;j++) {
-            if ([self.cellArray[i][j] belongsTo] == TDTUserTypeNone) {
+            if ([self.cellArray[i][j] player] == TDTUserTypeNone) {
                 return NO;
             }
         }
@@ -56,7 +56,7 @@
 
 - (void)cellTappedAtPosition:(TDTCellPosition *) position byPlayer:(Player) player {
     TDTCell *cellAtTappedPosition = self.cellArray[position.row][position.column];
-    cellAtTappedPosition.belongsTo = player;
+    cellAtTappedPosition.player = player;
     Player winner = [self winnerType];
     if (winner!=TDTUserTypeNone) {
         self.status = TDTGameStatusFinished;
@@ -83,21 +83,21 @@
 
 - (Player)whoOwnsLeftDiagonal {
     for (int i=1; i<3; i++) {
-        if([self.cellArray[i][i] belongsTo] != [self.cellArray[i-1][i-1] belongsTo]) {
+        if([self.cellArray[i][i] player] != [self.cellArray[i-1][i-1] player]) {
             return TDTUserTypeNone;
         }
     }
-    return [self.cellArray[0][0] belongsTo];
+    return [self.cellArray[0][0] player];
 }
 
 - (Player)whoOwnsRightDiagonal {
     int i,j;
     for(i = 0,j = 2; i <= 1; i++,j--) {
-        if ([self.cellArray[i][j] belongsTo] != [self.cellArray[i+1][j-1] belongsTo]) {
+        if ([self.cellArray[i][j] player] != [self.cellArray[i+1][j-1] player]) {
             return TDTUserTypeNone;
         }
     }
-    return [self.cellArray[0][2] belongsTo];
+    return [self.cellArray[0][2] player];
 }
 
 - (Player)whichPlayerWonByCompletingDiagonals {
@@ -116,7 +116,7 @@
 - (Player)findWinnerOfRowOrCol:(int)i usingBlockToGetCell:(TDTCell *(^)(int i, int j))block {
     BOOL isComplete = NO;
     for (int j=1; j<3; j++) {
-        if ([block(i,j) belongsTo] != [block(i,j-1) belongsTo]) {
+        if ([block(i,j) player] != [block(i,j-1) player]) {
             isComplete = NO;
             break;
         }
@@ -125,7 +125,7 @@
         }
     }
     if (isComplete) {
-        return [block(i,0) belongsTo];
+        return [block(i,0) player];
     }
     return TDTUserTypeNone;
 }
