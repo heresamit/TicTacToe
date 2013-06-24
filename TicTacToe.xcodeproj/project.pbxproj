@@ -20,7 +20,7 @@
 		DF2845A217741E7C00D54678 /* TDTCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2845A117741E7C00D54678 /* TDTCellButton.m */; };
 		DF2845A817741F4900D54678 /* TDTCellPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2845A717741F4900D54678 /* TDTCellPosition.m */; };
 		DF2845A917742B5E00D54678 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF28458D1774136700D54678 /* MainStoryboard.storyboard */; };
-		DF2845AE177434C000D54678 /* TDTTicTacToeGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2845AD177434BF00D54678 /* TDTTicTacToeGameObject.m */; };
+		DF2845AE177434C000D54678 /* TDTTicTacToeGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2845AD177434BF00D54678 /* TDTTicTacToeGameManager.m */; };
 		DF2845B2177438A000D54678 /* TDTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2845B11774389F00D54678 /* TDTCell.m */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +46,8 @@
 		DF2845A117741E7C00D54678 /* TDTCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTCellButton.m; sourceTree = "<group>"; };
 		DF2845A617741F4800D54678 /* TDTCellPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTCellPosition.h; sourceTree = "<group>"; };
 		DF2845A717741F4900D54678 /* TDTCellPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTCellPosition.m; sourceTree = "<group>"; };
-		DF2845AC177434BF00D54678 /* TDTTicTacToeGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTTicTacToeGameObject.h; sourceTree = "<group>"; };
-		DF2845AD177434BF00D54678 /* TDTTicTacToeGameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTTicTacToeGameObject.m; sourceTree = "<group>"; };
+		DF2845AC177434BF00D54678 /* TDTTicTacToeGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTTicTacToeGameManager.h; sourceTree = "<group>"; };
+		DF2845AD177434BF00D54678 /* TDTTicTacToeGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTTicTacToeGameManager.m; sourceTree = "<group>"; };
 		DF2845AF1774377D00D54678 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		DF2845B01774389F00D54678 /* TDTCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTCell.h; sourceTree = "<group>"; };
 		DF2845B11774389F00D54678 /* TDTCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTCell.m; sourceTree = "<group>"; };
@@ -110,8 +110,8 @@
 				DF2845AF1774377D00D54678 /* constants.h */,
 				DF2845B01774389F00D54678 /* TDTCell.h */,
 				DF2845B11774389F00D54678 /* TDTCell.m */,
-				DF2845AC177434BF00D54678 /* TDTTicTacToeGameObject.h */,
-				DF2845AD177434BF00D54678 /* TDTTicTacToeGameObject.m */,
+				DF2845AC177434BF00D54678 /* TDTTicTacToeGameManager.h */,
+				DF2845AD177434BF00D54678 /* TDTTicTacToeGameManager.m */,
 				DF28457C1774136600D54678 /* Supporting Files */,
 			);
 			path = TicTacToe;
@@ -203,7 +203,7 @@
 				DF2845921774136700D54678 /* TDTViewController.m in Sources */,
 				DF2845A217741E7C00D54678 /* TDTCellButton.m in Sources */,
 				DF2845A817741F4900D54678 /* TDTCellPosition.m in Sources */,
-				DF2845AE177434C000D54678 /* TDTTicTacToeGameObject.m in Sources */,
+				DF2845AE177434C000D54678 /* TDTTicTacToeGameManager.m in Sources */,
 				DF2845B2177438A000D54678 /* TDTCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

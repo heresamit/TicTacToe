@@ -11,7 +11,7 @@
 
 @implementation TDTCell
 
-- (id)initWithStatus:(CellStatus)belongsTo withCellPosition:(TDTCellPosition *)cellPosition {
+- (id)initWithStatus:(UserType)belongsTo withCellPosition:(TDTCellPosition *)cellPosition {
     self = [super init];
     if (self) {
         self.cellPosition = cellPosition;

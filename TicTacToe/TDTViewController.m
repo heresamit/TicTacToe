@@ -13,7 +13,7 @@
 @property (nonatomic, strong) UILabel*                 infoLabel;
 @property (nonatomic, strong) UIActivityIndicatorView* spinner;
 @property (nonatomic, strong) UIView*                  containerView;
-@property (nonatomic, strong) TDTTicTacToeGameObject*  gameObj;
+@property (nonatomic, strong) TDTTicTacToeGameManager*  gameObj;
 @property (nonatomic, strong) NSArray*                 buttonArray;
 @property (nonatomic, strong) NSArray*                 colorArray;
 @property (nonatomic, weak)   UIColor*                 userColor;
@@ -33,7 +33,7 @@
 
 - (void)initializator {
     
-    self.gameObj = [[TDTTicTacToeGameObject alloc] initWithStatus:gameStatusNotSet withDelegate:self];
+    self.gameObj = [[TDTTicTacToeGameManager alloc] initWithStatus:gameStatusNotSet withDelegate:self];
     [self fillButtonArray];
     
     NSInteger containerSide = CONTAINER_SIDE;
@@ -112,7 +112,7 @@
 {
     for(int i=0;i<3;i++) {
         for(int j=0;j<3;j++) {
-            if([self.gameObj.cellArray[i][j] belongsTo] == none) {
+            if([self.gameObj.cellArray[i][j] belongsTo] == TDTUserTypeNone) {
                 [self.buttonArray[i][j] setUserInteractionEnabled:enabled];
             }
         }
@@ -140,13 +140,13 @@
     NSMutableArray *freeCellArray = [[NSMutableArray alloc] init];
     for (int i=0;i<3;i++) {
         for (int j=0;j<3;j++) {
-            if ([self.gameObj.cellArray[i][j] belongsTo] == none)
+            if ([self.gameObj.cellArray[i][j] belongsTo] == TDTUserTypeNone)
                 [freeCellArray addObject:[self.gameObj.cellArray[i][j] cellPosition]];
         }
     }
     
     position = [freeCellArray objectAtIndex:(arc4random()%freeCellArray.count)];
-    [self.gameObj cellTappedAtPosition:position byPlayer:opponent];
+    [self.gameObj cellTappedAtPosition:position byPlayer:TDTUserTypeOpponent];
 }
 
 -(void) notifyOpponentOfTapAtPosition:(TDTCellPosition *)position {
@@ -159,7 +159,7 @@
     self.containerView.userInteractionEnabled = NO;
     self.infoLabel.text = @"Waiting for opponent";
     [self.spinner startAnimating];
-    [self.gameObj cellTappedAtPosition:sender.cellPosition byPlayer:user];
+    [self.gameObj cellTappedAtPosition:sender.cellPosition byPlayer:TDTUserTypeUser];
 }
 
 -(void) displayButtonArrayInContainerView:(UIView *)container {
@@ -177,7 +177,7 @@
 //****************************************************************************************************
 
 - (void)gameWasWonByUser:(UserType)winner {  
-    NSString *victoryText = (winner == user? @"Congrats You Won!" : @"You Lost!!");
+    NSString *victoryText = (winner == TDTUserTypeUser? @"Congrats You Won!" : @"You Lost!!");
     self.infoLabel.text = victoryText;
     [self.spinner stopAnimating];
     [self wrapUpGame];

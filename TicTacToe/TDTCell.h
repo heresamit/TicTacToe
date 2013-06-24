@@ -13,8 +13,8 @@
 @interface TDTCell : NSObject
 
 @property (nonatomic, strong) TDTCellPosition* cellPosition;
-@property (nonatomic)        CellStatus       belongsTo;
+@property (nonatomic)         UserType         belongsTo;
 
-- (id)initWithStatus:(CellStatus)belongsTo withCellPosition:(TDTCellPosition *)cellID;
+- (id)initWithStatus:(UserType)belongsTo withCellPosition:(TDTCellPosition *)cellID;
 
 @end

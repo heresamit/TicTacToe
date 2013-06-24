@@ -13,10 +13,10 @@
 #define SPINNER_SIDE 20.0f
 
 typedef enum{
-    none = 0,
-    user = 1,
-    opponent = 2
-}CellStatus;
+    TDTUserTypeNone = 0,
+    TDTUserTypeUser = 1,
+    TDTUserTypeOpponent = 2
+}UserType;
 
 typedef enum{
     gameStatusNotSet = 0,
@@ -25,11 +25,3 @@ typedef enum{
     finished = 3
 }GameStatus;
 
-typedef CellStatus UserType;
-/*
-typedef enum{
-    none = 0,
-    user = 1,
-    opponent = 2
-} userType;
-*/

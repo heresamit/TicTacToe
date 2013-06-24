@@ -20,7 +20,7 @@
 
 @end
 
-@interface TDTTicTacToeGameObject : NSObject
+@interface TDTTicTacToeGameManager : NSObject
 
 @property (nonatomic, strong) NSArray*   cellArray;
 @property (nonatomic)         GameStatus status;
