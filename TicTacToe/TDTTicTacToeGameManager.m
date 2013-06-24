@@ -12,7 +12,7 @@
 @interface TDTTicTacToeGameManager ()
 
 @property (nonatomic, weak) id        delegate;
-@property (nonatomic)       UserType  winnerOfGame;
+@property (nonatomic)       Player  winnerOfGame;
 
 @end
 
@@ -54,10 +54,10 @@
     return YES;
 }
 
-- (void)cellTappedAtPosition:(TDTCellPosition *) position byPlayer:(UserType) player {
+- (void)cellTappedAtPosition:(TDTCellPosition *) position byPlayer:(Player) player {
     TDTCell *cellAtTappedPosition = self.cellArray[position.row][position.column];
     cellAtTappedPosition.belongsTo = player;
-    UserType winner = [self winnerType];
+    Player winner = [self winnerType];
     if (winner!=TDTUserTypeNone) {
         self.status = TDTGameStatusFinished;
         if (winner == TDTUserTypeOpponent)
@@ -81,7 +81,7 @@
     }
 }
 
-- (UserType)whoOwnsLeftDiagonal {
+- (Player)whoOwnsLeftDiagonal {
     for (int i=1; i<3; i++) {
         if([self.cellArray[i][i] belongsTo] != [self.cellArray[i-1][i-1] belongsTo]) {
             return TDTUserTypeNone;
@@ -90,7 +90,7 @@
     return [self.cellArray[0][0] belongsTo];
 }
 
-- (UserType)whoOwnsRightDiagonal {
+- (Player)whoOwnsRightDiagonal {
     int i,j;
     for(i = 0,j = 2; i <= 1; i++,j--) {
         if ([self.cellArray[i][j] belongsTo] != [self.cellArray[i+1][j-1] belongsTo]) {
@@ -100,7 +100,7 @@
     return [self.cellArray[0][2] belongsTo];
 }
 
-- (UserType)whichPlayerWonByCompletingDiagonals {
+- (Player)whichPlayerWonByCompletingDiagonals {
     if ([self whoOwnsLeftDiagonal] != TDTUserTypeNone) {
         return [self whoOwnsLeftDiagonal];
     }
@@ -113,7 +113,7 @@
     
 }
 
-- (UserType)findWinnerOfRowOrCol:(int)i usingBlockToGetCell:(TDTCell *(^)(int i, int j))block {
+- (Player)findWinnerOfRowOrCol:(int)i usingBlockToGetCell:(TDTCell *(^)(int i, int j))block {
     BOOL isComplete = NO;
     for (int j=1; j<3; j++) {
         if ([block(i,j) belongsTo] != [block(i,j-1) belongsTo]) {
@@ -130,17 +130,17 @@
     return TDTUserTypeNone;
 }
 
-- (UserType)whichPlayerWinsByCompletingRowOrColumn {
+- (Player)whichPlayerWinsByCompletingRowOrColumn {
     TDTCell *(^blockToTraverseRow)(int i, int j) = ^(int i, int j){return self.cellArray[i][j];};
     TDTCell *(^blockToTraverseCol)(int i, int j) = ^(int i, int j){return self.cellArray[j][i];};
     
     for (int i=0; i<3; i++) {
-        UserType rowWinner = [self findWinnerOfRowOrCol:i usingBlockToGetCell:blockToTraverseRow];
+        Player rowWinner = [self findWinnerOfRowOrCol:i usingBlockToGetCell:blockToTraverseRow];
         if (rowWinner != TDTUserTypeNone) {
             return rowWinner;
         }
         else {
-            UserType colWinner = [self findWinnerOfRowOrCol:i usingBlockToGetCell:blockToTraverseCol];
+            Player colWinner = [self findWinnerOfRowOrCol:i usingBlockToGetCell:blockToTraverseCol];
             if (colWinner != TDTUserTypeNone) {
                 return colWinner;
             }
@@ -149,8 +149,8 @@
     return TDTUserTypeNone;
 }
 
-- (UserType)winnerType {
-    UserType winnerType = [self whichPlayerWonByCompletingDiagonals];
+- (Player)winnerType {
+    Player winnerType = [self whichPlayerWonByCompletingDiagonals];
     if (winnerType == TDTUserTypeNone) {
         return [self whichPlayerWinsByCompletingRowOrColumn];
     }

@@ -176,7 +176,7 @@
 }
 //****************************************************************************************************
 
-- (void)gameWasWonByUser:(UserType)winner {  
+- (void)gameWasWonByUser:(Player)winner {  
     NSString *victoryText = (winner == TDTUserTypeUser? @"Congrats You Won!" : @"You Lost!!");
     self.infoLabel.text = victoryText;
     [self.spinner stopAnimating];

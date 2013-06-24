@@ -16,7 +16,7 @@ typedef enum{
     TDTUserTypeNone = 0,
     TDTUserTypeUser = 1,
     TDTUserTypeOpponent = 2
-}UserType;
+}Player;
 
 typedef enum{
     TDTGameStatusNotSet = 0,

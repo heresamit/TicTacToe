@@ -12,7 +12,7 @@
 
 @protocol TicTacToeGameDisplayerProtocol
 
--(void) gameWasWonByUser:(UserType)winner;
+-(void) gameWasWonByUser:(Player)winner;
 -(void) opponentTappedCellAtPosition:(TDTCellPosition *)position;
 -(void) gameWasDrawn;
 -(void) gameStartedWithStatus:(GameStatus)status;
@@ -26,6 +26,6 @@
 @property (nonatomic)         GameStatus status;
 
 - (id)initWithStatus:(GameStatus)status withDelegate:(id)delegate;
-- (void)cellTappedAtPosition:(TDTCellPosition *)position byPlayer:(UserType)player;
+- (void)cellTappedAtPosition:(TDTCellPosition *)position byPlayer:(Player)player;
 
 @end
